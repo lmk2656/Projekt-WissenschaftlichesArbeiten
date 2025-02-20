@@ -2,11 +2,11 @@
 
 # R1i Statistiken für metrische Variablen
 # Variablen muessen numerisch sein:
-str(titanic)
-is.numeric(titanic$Age) # TRUE
-is.numeric(titanic$SibSp) # TRUE
-is.numeric(titanic$Parch) # TRUE
-is.numeric(titanic$Fare) # TRUE
+str(titanic2)
+is.numeric(titanic2$Age) # TRUE
+is.numeric(titanic2$SibSp) # TRUE
+is.numeric(titanic2$Parch) # TRUE
+is.numeric(titanic2$Fare) # TRUE
 ## Alle anderen Variablen sind FALSE, also nicht numerisch und können nicht in diese Funktion eingesetzt werden.
 
 # Bei numerischen Variablen kann man den Mittelwert, den Median, die Varianz, die Standardabweichung, das Minimum, das Maximum 
@@ -23,14 +23,14 @@ metrisch <- function(x){
 
 # R1ii Statistiken für kategoriale Variablen
 ## Variablen sollten als Klasse "factor" oder "character" haben:
-str(titanic)
-class(titanic$Survived) # factor
-class(titanic$Pclass) # ordered factor
-class(titanic$Sex) # factor
-class(titanic$Embarked) # factor
-class(titanic$Anrede) # character
-class(titanic$Bordseite) # character
-class(titanic$Deck) # character
+str(titanic2)
+class(titanic2$Survived) # factor
+class(titanic2$Pclass) # ordered factor
+class(titanic2$Sex) # factor
+class(titanic2$Embarked) # factor
+class(titanic2$Anrede) # character
+class(titanic2$Bordseite) # character
+class(titanic2$Deck) # character
 
 # Bei kategorialen Variablen kann man die absolute Haeufigkeit, die relative Haeufigkeit und den Modus berechnen lassen:
 kategorial <- function(y){
