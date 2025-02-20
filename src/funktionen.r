@@ -42,7 +42,25 @@ kategorial <- function(y){
 # R1iii Zusammenhang kategoriale Variablen
 
 # R1iv metrische und dichotomen Variablen
-
+zusammenhang_metrisch_dichotom <- function(metrisch, dichotom) {
+  if (!is.numeric(metrisch)) {
+    stop("Die erste Variable muss numerisch sein.")
+  }
+  
+  if (!is.factor(dichotom) && !is.logical(dichotom) && length(unique(dichotom)) == 2) {
+    stop("Die zweite Variable muss dichotom (zwei Ausprägungen) sein, also ein Faktor oder logische Variable.")
+  }
+  
+  gruppen <- split(metrisch, dichotom)
+  t_test <- t.test(metrisch ~ dichotom)
+  
+  print(list(
+    Gruppenstatistiken = lapply(gruppen, function(x) c(Mittelwert = mean(x, na.rm = TRUE),
+                                                       Median = median(x, na.rm = TRUE),
+                                                       Standardabweichung = sd(x, na.rm = TRUE))),
+    T_Test = t_test
+  ))
+}
 # R1v Visualisierung kategoriale Variablen
 ## geeignete Visualisierung von drei oder vier kategorialen Variablen
 visualisierung_ueberlebensrate_klasse <- function(daten, x_var, fill_var, aufteilung) {
