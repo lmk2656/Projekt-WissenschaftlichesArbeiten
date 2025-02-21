@@ -1,5 +1,8 @@
 # Aufgabe 2: Funktionen für die Auswertung und Visualisierung
 
+# neuen Datensatz einlesen:
+titanic2 <- read.csv("titanic2.csv")
+
 # R1i Statistiken für metrische Variablen
 # Variablen muessen numerisch sein:
 str(titanic2)
@@ -70,3 +73,10 @@ visualisierung_ueberlebensrate_klasse <- function(daten, x_var, fill_var, auftei
 
 
 # R1vi weitere Funktionen
+summary(titanic2)
+
+boxplot(titanic2$Pclass ~ titanic2$Survived, col = "lightblue", xlab = "Überlebt", 
+        ylab = "Klasse", yaxt = "n", las = 1, 
+        main = "Zusammenhang zwischen der Klasse und dem Überleben")
+axis(2, 1:3, las = 1, labels = c("1", "2", "3"))
+
