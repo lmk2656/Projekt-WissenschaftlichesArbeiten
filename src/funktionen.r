@@ -111,6 +111,27 @@ summary(titanic2)
 
 boxplot(titanic2$Pclass ~ titanic2$Survived, col = "lightblue", xlab = "Überlebt", 
         ylab = "Klasse", yaxt = "n", las = 1, 
+
         main = "Zusammenhang zwischen der Klasse und dem Überleben")
 axis(2, 1:3, las = 1, labels = c("1", "2", "3"))
 
+ #iv
+korrelation_metrisch <- function(x, y) { 
+   if (!is.numeric(x) || !is.numeric(y)) { 
+    stop("Beide Variablen müssen numerisch sein.") 
+   } 
+  
+  korrelation <- cor(x, y, use = "complete.obs")
+  plot <- ggplot(data.frame(x, y), aes(x = x, y = y)) + 
+    geom_point(alpha = 0.6, color = "blue") + 
+    geom_smooth(method = "lm", color = "red") + 
+    labs(
+      title = paste("Streudiagramm von", deparse(substitute(x)), "und", deparse(substitute(y))),
+      x = deparse(substitute(x)), 
+      y = deparse(substitute(y))
+    ) + 
+    theme_minimal()
+ 
+  print(list(Korrelation = korrelation))
+  print(plot) 
+  }
