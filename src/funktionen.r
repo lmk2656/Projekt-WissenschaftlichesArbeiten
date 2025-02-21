@@ -112,7 +112,10 @@ summary(titanic2)
 boxplot(titanic2$Pclass ~ titanic2$Survived, col = "lightblue", xlab = "Überlebt", 
         ylab = "Klasse", yaxt = "n", las = 1, 
 
-#iv
+        main = "Zusammenhang zwischen der Klasse und dem Überleben")
+axis(2, 1:3, las = 1, labels = c("1", "2", "3"))
+
+ #iv
 korrelation_metrisch <- function(x, y) { 
    if (!is.numeric(x) || !is.numeric(y)) { 
     stop("Beide Variablen müssen numerisch sein.") 
@@ -132,6 +135,3 @@ korrelation_metrisch <- function(x, y) {
   print(list(Korrelation = korrelation))
   print(plot) 
   }
-        main = "Zusammenhang zwischen der Klasse und dem Überleben")
-axis(2, 1:3, las = 1, labels = c("1", "2", "3"))
-
