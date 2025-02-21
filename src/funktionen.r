@@ -61,6 +61,35 @@ zusammenhang_kategorial <- function(x, y) {
 }
 
 # R1iv metrische und dichotomen Variablen
+zusammenhang_metrisch_dichotom <- function(metrisch, dichotom) {
+  if (!is.numeric(metrisch)) {
+    stop("Die erste Variable muss numerisch sein.")
+  }
+  
+  if (!is.factor(dichotom) && !is.logical(dichotom) && length(unique(dichotom)) == 2) {
+    stop("Die zweite Variable muss dichotom (zwei Ausprägungen) sein, also ein Faktor oder logische Variable.")
+  }
+  
+  gruppen <- split(metrisch, dichotom)
+  
+  statistik_metrisch <- list(
+    Mittelwert = mean(metrisch, na.rm = TRUE),
+    Standardabweichung = sd(metrisch, na.rm = TRUE)
+  )
+  
+  statistik_dichotom <- lapply(gruppen, function(x) list(
+    Mittelwert = mean(x, na.rm = TRUE),
+    Standardabweichung = sd(x, na.rm = TRUE)
+  ))
+  
+  t_test <- t.test(metrisch ~ dichotom)
+  
+  print(list(
+    Statistik_gesamt = statistik_metrisch,
+    Statistik_nach_Gruppen = statistik_dichotom,
+    T_Test = t_test
+  ))
+}
 
 # R1v Visualisierung kategoriale Variablen
 ## geeignete Visualisierung von drei oder vier kategorialen Variablen
