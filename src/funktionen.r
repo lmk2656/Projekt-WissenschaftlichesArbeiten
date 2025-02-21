@@ -40,6 +40,17 @@ kategorial <- function(y){
 }
 
 # R1iii Zusammenhang kategoriale Variablen
+zusammenhang_kategorial <- function(x, y) {
+  tab <- table(x, y)
+  chi_test <- chisq.test(tab)
+  cramer_v <- sqrt(chi_test$statistic / (sum(tab) * (min(dim(tab)) - 1)))
+  
+  print(list(
+    Kreuztabelle = tab,
+    Chi_Quadrat_Test = chi_test,
+    Cramer_V = cramer_v
+  ))
+}
 
 # R1iv metrische und dichotomen Variablen
 
