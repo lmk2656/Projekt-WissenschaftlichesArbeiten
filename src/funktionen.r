@@ -45,13 +45,18 @@ kategorial <- function(y){
 # R1iii Zusammenhang kategoriale Variablen
 zusammenhang_kategorial <- function(x, y) {
   tab <- table(x, y)
+  
   chi_test <- chisq.test(tab)
-  cramer_v <- sqrt(chi_test$statistic / (sum(tab) * (min(dim(tab)) - 1)))
+  staerke_des_zusammenhangs <- sqrt(chi_test$statistic / (sum(tab) * (min(dim(tab)) - 1)))
+  
+  ##Führt einen Chi-Quadrat-Unabhängigkeitstest durch, um zu prüfen, ob ein statistisch signifikanter Zusammenhang zwischen den beiden Variablen besteht, 
+  ##Danach wird die Stärke des Zusammenhangs zwischen zwei kategorialen Variablen berechnet (Werte zwischen 0 und 1, wobei 1 eine starke Abhängigkeit bedeutet).
+  
   
   print(list(
     Kreuztabelle = tab,
     Chi_Quadrat_Test = chi_test,
-    Cramer_V = cramer_v
+    Staerke_des_zusammenhangs = staerke_des_zusammenhangs
   ))
 }
 
