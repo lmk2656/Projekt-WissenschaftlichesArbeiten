@@ -101,9 +101,10 @@ visualisierung_ueberlebensrate_klasse <- function(daten, x_var, fill_var, auftei
          x = x_var,
          y = "Anzahl")
 }
-# Aufruf: visualisierung_ueberlebensrate_klasse(titanic, "Pclass", "Survived", "Sex")
-# Aufruf: visualisierung_ueberlebensrate_klasse(titanic, "Pclass", "Survived", "Bordseite")
-# Aufruf: visualisierung_ueberlebensrate_klasse(titanic, "Deck", "Pclass", "Survived")
+
+visualisierung_ueberlebensrate_klasse(titanic, "Pclass", "Survived", "Sex")
+visualisierung_ueberlebensrate_klasse(titanic, "Pclass", "Survived", "Bordseite")
+visualisierung_ueberlebensrate_klasse(titanic, "Deck", "Pclass", "Survived")
 
 
 # R1vi weitere Funktionen
