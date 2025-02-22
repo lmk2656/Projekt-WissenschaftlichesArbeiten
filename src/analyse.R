@@ -18,7 +18,7 @@ titanic2 <- data.frame(lapply(titanic2, function(x) {
 
 # Konvertiere relevante Spalten in Faktoren
 titanic2$Survived <- as.factor(titanic2$Survived)
-titanic2$Pclass <- as.factor(titanic2$Pclass)
+titanic2$Pclass <- factor(titanic2$Pclass, levels = c(1,2,3), ordered = TRUE)
 titanic2$Sex <- as.factor(titanic2$Sex)
 
 # 2. Deskriptive Statistik und Visualisierung
