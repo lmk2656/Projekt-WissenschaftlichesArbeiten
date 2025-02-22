@@ -68,7 +68,7 @@ boxplot(titanic2$Fare ~ titanic2$Survived,
         col = "lightgreen",
         xlab = "Überlebt",
         ylab = "Fahrpreis",
-        main = "Fahrpreis nach Überleben")
+        main = "Zusammenhang zwischen dem Fahrpreis und dem Überleben")
 
 # Korrelation zwischen Alter und Fahrpreis
 korrelation_metrisch(titanic2$Age, titanic2$Fare)
