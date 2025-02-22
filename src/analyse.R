@@ -1,5 +1,7 @@
 # Skript zur Analyse des Titanic-Datensatzes mit Funktionen aus Skript 1
 
+## Aufgabe 3
+
 # 1. Datensatz einlesen
 titanic2 <- read.csv("titanic2.csv", stringsAsFactors = TRUE)
 
