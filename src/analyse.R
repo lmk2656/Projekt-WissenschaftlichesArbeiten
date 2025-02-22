@@ -46,11 +46,11 @@ zusammenhang_kategorial(titanic2$Survived, titanic2$Pclass)
 
 # (iv) zusammenhang_metrisch_dichotom() Funktion anwenden
 # Untersuche den Zusammenhang zwischen Alter und Überleben
-titanic2$Survived_numeric <- as.numeric(titanic2$Survived) -1 #Erstelle numerische Variable für Überleben
-zusammenhang_metrisch_dichotom(titanic2$Age, titanic2$Survived_numeric)
+titanic2$Survived_factor <- as.factor(titanic2$Survived)-1 # Variable muss factor sein
+zusammenhang_metrisch_dichotom(titanic2$Age, titanic2$Survived_factor)
 
 # Untersuche den Zusammenhang zwischen Fahrpreis und Überleben
-zusammenhang_metrisch_dichotom(titanic2$Fare, titanic2$Survived_numeric)
+zusammenhang_metrisch_dichotom(titanic2$Fare, titanic2$Survived_factor)
 
 # (v) visualisierung_ueberlebensrate_klasse() Funktion anwenden
 # Visualisierung der Überlebensrate nach Klasse und Geschlecht
