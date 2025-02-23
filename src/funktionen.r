@@ -66,7 +66,7 @@ zusammenhang_metrisch_dichotom <- function(metrisch, dichotom) {
     stop("Die erste Variable muss numerisch sein.")
   }
   
-  if (!is.factor(dichotom) && !is.logical(dichotom) && length(unique(dichotom)) == 2) {
+  if (!is.factor(dichotom) && !is.logical(dichotom) && length(unique(dichotom)) != 2) {
     stop("Die zweite Variable muss dichotom (zwei Ausprägungen) sein, also ein Faktor oder logische Variable.")
   }
   
