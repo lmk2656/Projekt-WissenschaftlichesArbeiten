@@ -109,6 +109,25 @@ zusammenhang_kategorial(titanic2$Survived, titanic2$Sex)
 ## Untersuche den Zusammenhang zwischen Überleben und Klasse
 zusammenhang_kategorial(titanic2$Survived, titanic2$Pclass)
 
+#Ergebnis:
+#Kreuztabelle:
+  #In der 1. Klasse starben 74 Passagiere und 58 überlebten.
+  #In der 2. Klasse starben 54 Passagiere und 41 überlebten.
+  #In der 3. Klasse starben 134 Passagiere und 71 überlebten.
+
+#Chi-Quadrat-Test:
+  #Der p-Wert beträgt 6.507e-07, was deutlich unter dem üblichen Signifikanzniveau von 0.05 liegt.
+  #Dies bedeutet, dass der Zusammenhang zwischen Ticketklasse und Überleben statistisch signifikant ist.
+  #Wir können die Nullhypothese, dass kein Zusammenhang besteht, mit hoher Sicherheit ablehnen.
+
+#Stärke des Zusammenhangs:
+  #Der Wert 0.1147854 zeigt eine geringe Assoziation zwischen den Variablen.
+  #Dieser Wert liegt auf einer Skala von 0 (kein Zusammenhang) bis 1 (perfekter Zusammenhang).
+
+#Schlussfolgerung:
+  #Es besteht ein statistisch signifikanter Zusammenhang zwischen der Ticketklasse und der Überlebenschance auf der Titanic. Es deutet sich an, dass Passagiere der höheren Klassen tendenziell bessere Überlebenschancen hatten, aber der Zusammenhang ist nicht sehr stark.
+
+
 # (iv) zusammenhang_metrisch_dichotom() Funktion anwenden
 # Untersuche den Zusammenhang zwischen Alter und Überleben
 titanic2$Survived_factor <- as.factor(titanic2$Survived)-1 # Variable muss factor sein
