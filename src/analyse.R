@@ -29,21 +29,84 @@ titanic2$Sex <- as.factor(titanic2$Sex)
 # Untersuche das Alter
 metrisch(titanic2$Age)
 
+##Ergebnis:
+#Mittelwert (Durchschnitt): 28,29 Jahre
+#Median: 26 Jahre
+#Varianz: 123,08
+#Standardabweichung: 11,09
+#Minimum: 3 Jahre
+#Maximum: 56 Jahre
+#Spannweite: 53 Jahre
+
+
 # Untersuche den Fahrpreis
 metrisch(titanic2$Fare)
+
+##Ergebnis:
+#Mittelwert (Durchschnitt): 19,71
+#Median: 10,51
+#Varianz: 515,26
+#Standardabweichung: 22,71
+#Minimum: 5,00
+#Maximum: 83,16
+#Spannweite: 78,16
+
 
 # (ii) kategorial() Funktion anwenden
 # Untersuche die Überlebensrate
 kategorial(titanic2$Survived)
 
+##Ergebnis:
+#Absolute Häufigkeit:
+  #Überlebt (1): 7
+  #Nicht überlebt (0): 15
+#Relative Häufigkeit:
+  #Überlebt: 31,8 %
+  #Nicht überlebt: 68,2 %
+#Modus (häufigste Kategorie):
+  #0 (Nicht überlebt)
+
 # Untersuche die Ticketklasse
 kategorial(titanic2$Pclass)
+
+##Ergebnis:
+#Absolute Häufigkeit:
+#1. Klasse: 40
+#2. Klasse: 36
+#3. Klasse: 94
+#Relative Häufigkeit:
+#1. Klasse: 23,5%
+#2. Klasse: 21.2%
+#3. Klasse: 55,30%
+#Modus (häufigste Kategorie):
+#Die 3. Klasse ist die häufigste Ticketklasse
+
 
 # (iii) zusammenhang_kategorial() Funktion anwenden
 # Untersuche den Zusammenhang zwischen Überleben und Geschlecht
 zusammenhang_kategorial(titanic2$Survived, titanic2$Sex)
 
+#Ergebnis:
+#Kreuztabelle:
+  #Von den Frauen überlebten 6 und 3 starben.
+  #Von den Männern überlebten 2 und 13 starben.
+
+#Chi-Quadrat-Test:
+  #Der p-Wert ist 0.006743, was deutlich unter dem üblichen Signifikanzniveau von 0.05 liegt.
+  #Dies bedeutet, dass der Zusammenhang zwischen Geschlecht und Überleben statistisch signifikant ist.
+  #Wir können die Nullhypothese, dass kein Zusammenhang besteht, mit hoher Sicherheit ablehnen.
+
+#Stärke des Zusammenhangs:
+   #Der Wert 0.5777108 zeigt eine moderate bis starke Assoziation zwischen den Variablen.
+   #Dieser Wert liegt auf einer Skala von 0 (kein Zusammenhang) bis 1 (perfekter Zusammenhang).
+
+#Schlussfolgerung:
+  #Es besteht ein statistisch signifikanter und relativ starker Zusammenhang zwischen dem Geschlecht einer Person und ihrer Überlebenschance auf der Titanic. 
+  #Frauen hatten eine deutlich höhere Überlebenswahrscheinlichkeit als Männer.
 # Untersuche den Zusammenhang zwischen Überleben und Ticketklasse
+
+
+## Untersuche den Zusammenhang zwischen Überleben und Klasse
 zusammenhang_kategorial(titanic2$Survived, titanic2$Pclass)
 
 # (iv) zusammenhang_metrisch_dichotom() Funktion anwenden
