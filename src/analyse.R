@@ -1,5 +1,7 @@
 # Skript zur Analyse des Titanic-Datensatzes mit Funktionen aus Skript 1
 
+## Aufgabe 3
+
 # 1. Datensatz einlesen
 titanic2 <- read.csv("titanic2.csv", stringsAsFactors = TRUE)
 
@@ -18,7 +20,8 @@ titanic2 <- data.frame(lapply(titanic2, function(x) {
 
 # Konvertiere relevante Spalten in Faktoren
 titanic2$Survived <- as.factor(titanic2$Survived)
-titanic2$Pclass <- as.factor(titanic2$Pclass)
+titanic2$Pclass <- factor(titanic2$Pclass, levels = c(1,2,3), ordered = TRUE)
+titanic2$Sex <- as.factor(titanic2$Sex)
 
 # 2. Deskriptive Statistik und Visualisierung
 
@@ -45,11 +48,11 @@ zusammenhang_kategorial(titanic2$Survived, titanic2$Pclass)
 
 # (iv) zusammenhang_metrisch_dichotom() Funktion anwenden
 # Untersuche den Zusammenhang zwischen Alter und Überleben
-titanic2$Survived_numeric <- as.numeric(titanic2$Survived) -1 #Erstelle numerische Variable für Überleben
-zusammenhang_metrisch_dichotom(titanic2$Age, titanic2$Survived_numeric)
+titanic2$Survived_factor <- as.factor(titanic2$Survived)-1 # Variable muss factor sein
+zusammenhang_metrisch_dichotom(titanic2$Age, titanic2$Survived_factor)
 
 # Untersuche den Zusammenhang zwischen Fahrpreis und Überleben
-zusammenhang_metrisch_dichotom(titanic2$Fare, titanic2$Survived_numeric)
+zusammenhang_metrisch_dichotom(titanic2$Fare, titanic2$Survived_factor)
 
 # (v) visualisierung_ueberlebensrate_klasse() Funktion anwenden
 # Visualisierung der Überlebensrate nach Klasse und Geschlecht
@@ -67,7 +70,7 @@ boxplot(titanic2$Fare ~ titanic2$Survived,
         col = "lightgreen",
         xlab = "Überlebt",
         ylab = "Fahrpreis",
-        main = "Fahrpreis nach Überleben")
+        main = "Zusammenhang zwischen dem Fahrpreis und dem Überleben")
 
 # Korrelation zwischen Alter und Fahrpreis
 korrelation_metrisch(titanic2$Age, titanic2$Fare)

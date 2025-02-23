@@ -100,17 +100,21 @@ visualisierung_ueberlebensrate_klasse <- function(daten, x_var, fill_var, auftei
          x = x_var,
          y = "Anzahl")
 }
-# Aufruf: visualisierung_ueberlebensrate_klasse(titanic, "Pclass", "Survived", "Sex")
-# Aufruf: visualisierung_ueberlebensrate_klasse(titanic, "Pclass", "Survived", "Bordseite")
-# Aufruf: visualisierung_ueberlebensrate_klasse(titanic, "Deck", "Pclass", "Survived")
+
+visualisierung_ueberlebensrate_klasse(titanic, "Pclass", "Survived", "Sex")
+visualisierung_ueberlebensrate_klasse(titanic, "Pclass", "Survived", "Bordseite")
+visualisierung_ueberlebensrate_klasse(titanic, "Deck", "Pclass", "Survived")
 
 
 # R1vi weitere Funktionen
 summary(titanic2)
 
-boxplot(titanic2$Pclass ~ titanic2$Survived, col = "lightblue", xlab = "Überlebt", 
-        ylab = "Klasse", yaxt = "n", las = 1, 
-
+boxplot(titanic2$Pclass ~ titanic2$Survived, 
+        col = "lightblue", 
+        xlab = "Überlebt", 
+        ylab = "Klasse", 
+        yaxt = "n", 
+        las = 1,
         main = "Zusammenhang zwischen der Klasse und dem Überleben")
 axis(2, 1:3, las = 1, labels = c("1", "2", "3"))
 

@@ -1,9 +1,7 @@
 # Funktionen-R-Skript 2: Interne Hilferfunktionen
 
 # Hilfsfunktion zur Überprüfung, ob eine Variable numerisch ist
-is_numeric_variable <- function(x) {
-  return(is.numeric(x))
-}
+is.numeric(x)
 
 # Hilfsfunktion zur Berechnung der Spannweite
 calculate_range <- function(x) {
