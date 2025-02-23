@@ -132,9 +132,31 @@ zusammenhang_kategorial(titanic2$Survived, titanic2$Pclass)
 # Untersuche den Zusammenhang zwischen Alter und Überleben
 titanic2$Survived_factor <- as.factor(titanic2$Survived)-1 # Variable muss factor sein
 zusammenhang_metrisch_dichotom(titanic2$Age, titanic2$Survived_factor)
-
-# Untersuche den Zusammenhang zwischen Fahrpreis und Überleben
 zusammenhang_metrisch_dichotom(titanic2$Fare, titanic2$Survived_factor)
+
+#Ergebnis:
+#Gesamtstatistik:
+  #Das Durchschnittsalter aller Passagiere beträgt etwa 29.7 Jahre.
+  #Die Standardabweichung des Alters beträgt etwa 14.5 Jahre, was auf eine breite Altersverteilung hindeutet.
+
+#Statistik nach Gruppen:
+  #Nicht-Überlebende (0):
+    #Durchschnittsalter: 30.6 Jahre
+    #Standardabweichung: 14.2 Jahre
+  #Überlebende (1):
+    #Durchschnittsalter: 28.3 Jahre
+    #Standardabweichung: 15.0 Jahre
+
+#T-Test:
+  #Der p-Wert beträgt 0.04845, was knapp unter dem üblichen Signifikanzniveau von 0.05 liegt.
+  #Dies deutet auf einen statistisch signifikanten Unterschied im Durchschnittsalter zwischen Überlebenden und Nicht-Überlebenden hin.
+  #Die Differenz der Mittelwerte beträgt etwa 2.3 Jahre (30.6 - 28.3).
+
+#Schlussfolgerung:
+  #Es gibt einen statistisch signifikanten, aber relativ kleinen Unterschied im Durchschnittsalter zwischen Überlebenden und Nicht-Überlebenden der Titanic-Katastrophe. 
+  #Überlebende waren im Durchschnitt etwas jünger als Nicht-Überlebende, aber der Unterschied ist mit etwa 2.3 Jahren nicht sehr groß.
+# Untersuche den Zusammenhang zwischen Fahrpreis und Überleben
+
 
 # (v) visualisierung_ueberlebensrate_klasse() Funktion anwenden
 # Visualisierung der Überlebensrate nach Klasse und Geschlecht
@@ -142,6 +164,11 @@ visualisierung_ueberlebensrate_klasse(titanic2, "Pclass", "Survived", "Sex")
 
 # Visualisierung der Überlebensrate nach Geschlecht und Klasse
 visualisierung_ueberlebensrate_klasse(titanic2, "Sex", "Survived", "Pclass")
+
+#Ergebnis:
+#Überlebensraten nach Klasse (innerhalb jedes Geschlechts):
+  #Für Männer: Ja, die Überlebensrate in der 1. Klasse war deutlich höher als in der 3. Klasse. Dies ist ein sehr deutlicher Trend im Plot.
+  #Für Frauen: Ja, auch für Frauen war die Überlebensrate in der 1. Klasse tendenziell höher als in der 3. Klasse. Der Unterschied war jedoch möglicherweise nicht ganz so ausgeprägt wie bei den Männern.
 
 # (vi) Weitere Funktionen
 # Verwende summary(), um einen Überblick über den Datensatz zu erhalten
@@ -154,6 +181,15 @@ boxplot(titanic2$Fare ~ titanic2$Survived,
         ylab = "Fahrpreis",
         main = "Zusammenhang zwischen dem Fahrpreis und dem Überleben")
 
+#Ergebnis:
+  #Es besteht ein positiver Zusammenhang zwischen dem Fahrpreis und der Überlebenswahrscheinlichkeit.
+  #Passagiere mit teureren Tickets (wahrscheinlich in höheren Klassen) hatten im Durchschnitt bessere Überlebenschancen.
+  #Die größere Streuung bei den Überlebenden deutet darauf hin, dass auch einige Passagiere mit günstigeren Tickets überlebten, aber die Tendenz geht zu höheren Überlebenschancen bei höheren Fahrpreisen.
+
 # Korrelation zwischen Alter und Fahrpreis
 korrelation_metrisch(titanic2$Age, titanic2$Fare)
 
+#Ergebnis:
+  #Die Korrelation von 0.09263824 deutet auf eine sehr schwache positive lineare Beziehung zwischen Alter und Fahrpreis hin. 
+  #Das bedeutet, dass es keine starke Tendenz gibt, dass ältere Passagiere tendenziell deutlich höhere oder niedrigere Fahrpreise bezahlt haben.
+  #Der Zusammenhang ist sehr gering.
