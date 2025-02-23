@@ -84,7 +84,6 @@ zusammenhang_metrisch_dichotom <- function(metrisch, dichotom) {
   
   t_test <- t.test(metrisch ~ dichotom)
   
-  print(list(
     Statistik_gesamt = statistik_metrisch,
     Statistik_nach_Gruppen = statistik_dichotom,
     T_Test = t_test
